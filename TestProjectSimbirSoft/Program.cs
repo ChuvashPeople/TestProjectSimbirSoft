@@ -11,6 +11,7 @@ namespace TestProjectSimbirSoft
             string link = Console.ReadLine();
             string path = @""; //Указать путь к файлу, в который будет сохраняться html-страница
             Sort.SortPage(Parse.ParsePage(DownLoad_Read.DownloadRead(path, link)));
+            
         }
     }
 }
