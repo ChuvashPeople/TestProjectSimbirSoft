@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
 
 namespace TestProjectSimbirSoft
 {
-    class Sorting
+    class Sort
     {
-        public static IEnumerable<object> SortPage(string[] text)
+        public static void SortPage(string[] text)
         {
             var result = from i in text
                          group i by i into g
@@ -18,13 +15,12 @@ namespace TestProjectSimbirSoft
                              Name = g.Key,
                              Count = g.Count()
                          };
-
+            Console.WriteLine();
+            Console.WriteLine("Статистика по количеству уникальных слов: ");
             foreach (var item in result)
             {
                 Console.WriteLine($"{item.Name} - {item.Count} ");
             }
-
-            return result;
         }
     }
 }

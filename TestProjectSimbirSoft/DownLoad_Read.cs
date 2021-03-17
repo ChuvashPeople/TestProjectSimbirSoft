@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HtmlAgilityPack;
 using System.Net;
 using System.IO;
 
 namespace TestProjectSimbirSoft
 {
-    class DLR
+    class DownLoad_Read
     {
-        public static string DownloadLoadRead(string path, string link)
+        public static string DownloadRead(string path, string link)
         {
             string text = "";
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Collections;
 
 namespace TestProjectSimbirSoft
 {
@@ -8,21 +7,10 @@ namespace TestProjectSimbirSoft
     {
         static void Main(string[] args)
         {
+            Console.Write("Введите ссылку на страницу: ");
             string link = Console.ReadLine();
-            string path = @"D:\html\html.txt";
-            
-
-            string inputPath = @"D:\html\input.txt";
-
-            var ret = Sorting.SortPage(Parsing.ParsePage(DLR.DownloadLoadRead(path, link)));
-
-            using (StreamWriter strw = new StreamWriter(inputPath, false))
-            {
-                foreach (var item in ret)
-                {
-                    strw.WriteLine(item);
-                }
-            }
+            string path = @""; //Указать путь к файлу, в который будет сохраняться html-страница
+            Sort.SortPage(Parse.ParsePage(DownLoad_Read.DownloadRead(path, link)));
         }
     }
 }
