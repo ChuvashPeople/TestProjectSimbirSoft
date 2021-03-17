@@ -9,7 +9,7 @@ namespace TestProjectSimbirSoft
 {
     class Sorting
     {
-        public static IEnumerable SortPage(string[] text)
+        public static IEnumerable<object> SortPage(string[] text)
         {
             var result = from i in text
                          group i by i into g
@@ -18,10 +18,12 @@ namespace TestProjectSimbirSoft
                              Name = g.Key,
                              Count = g.Count()
                          };
+
             foreach (var item in result)
             {
-                Console.WriteLine($"{item.Name} - {item.Count}");
+                Console.WriteLine($"{item.Name} - {item.Count} ");
             }
+
             return result;
         }
     }

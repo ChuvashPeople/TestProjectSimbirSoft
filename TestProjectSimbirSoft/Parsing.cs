@@ -12,7 +12,9 @@ namespace TestProjectSimbirSoft
         {
             string text = "";
 
-            char[] r = { ' ', ',', '.', '!', '?', '"', ';', ':', '[', ']', '(', ')', '\n', '\r', '\t', '«', '»', '—','/', '©' };
+            char[] r = { ' ', ',', '.', '!', '?', '"', ';',
+                ':', '[', ']', '(', ')', '\n', '\r', '\t', 
+                '«', '»', '—','/', '©','-', '\\','+',' ','&','.','·' };
 
             oldText = Remove.RemoveJS(oldText);
             
@@ -23,6 +25,10 @@ namespace TestProjectSimbirSoft
                     while (!oldText[i].Equals('>'))
                     {
                         i++;
+                    }
+                    if (oldText[i].Equals('>'))
+                    {
+                        text += " ";
                     }
                 }
                 else

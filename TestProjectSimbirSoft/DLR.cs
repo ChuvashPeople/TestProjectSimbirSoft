@@ -15,17 +15,25 @@ namespace TestProjectSimbirSoft
         {
             string text = "";
 
-            using (WebClient client = new WebClient())
+            try
             {
-                client.DownloadFile(link, path);
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile(link, path);
+                }
+
+                using (StreamReader str = new StreamReader(path))
+                {
+                    text = str.ReadToEnd();
+                }
             }
-
-            HtmlDocument document = new HtmlDocument();
-            document.LoadHtml(path);
-
-            using (StreamReader str = new StreamReader(path))
+            catch (WebException)
             {
-                text = str.ReadToEnd();
+                Console.WriteLine("Пожалуйста, введите корректную ссылку.");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Не правильно указан путь к файлу.");
             }
 
             return text;
